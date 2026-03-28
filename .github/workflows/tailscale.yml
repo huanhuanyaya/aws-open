@@ -29,10 +29,14 @@ jobs:
           curl -sS https://starship.rs/install.sh | sh -s -- -y
           
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+          chsh root -s $(which zsh)
           
           git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
           git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
           git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+          
+          source ~/.zshrc
+          compaudit | xargs chmod g-w,o-w
           
           cat > .zshrc <<'EOF'
           # If you come from bash you might have to change your $PATH.
@@ -152,10 +156,6 @@ jobs:
           eval "$(starship init zsh)"
           
           EOF
-          
-          compaudit | xargs chmod g-w,o-w
-          chsh root -s $(which zsh)
-          
           ROOT_EOF
 
       - name: Show Workflow env
