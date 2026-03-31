@@ -23,7 +23,6 @@ ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
 
 # Copy .zshrc from scripts
 cp .github/scripts/.zshrc "$HOME/.zshrc"
-chsh root -s $(which zsh)
 
 # Fix zsh completion permissions
 chmod go-w /usr/share/zsh 2>/dev/null || true
@@ -51,3 +50,6 @@ for cmd in poweroff reboot shutdown halt; do
         ln -sf /usr/local/bin/action-shutdown "/sbin/$cmd" 2>/dev/null || true
     fi
 done
+
+# Finish, Change Shell
+chsh root -s $(which zsh)
