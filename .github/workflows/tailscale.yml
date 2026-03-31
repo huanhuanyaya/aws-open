@@ -32,7 +32,8 @@ jobs:
           oauth-client-id: ${{ secrets.TAILSCALE_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TAILSCALE_OAUTH_SECRET }}
           tags: tag:not
-          args: --advertise-exit-node --ssh --hostname aws
+          args: --advertise-exit-node --ssh
+          hostname: aws
 
       - name: Free Disk Space (Ubuntu)
         if: ${{ inputs.free-space }}
