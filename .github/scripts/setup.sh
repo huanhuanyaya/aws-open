@@ -4,7 +4,7 @@ set -e
 # Update and install packages
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y wget curl vim tmux tree nload zsh ripgrep neovim fd-find git bat
+apt-get install -y wget curl vim tmux tree nload zsh ripgrep neovim fd-find git bat mosh
 
 # Install tools
 curl -sS https://starship.rs/install.sh | sh -s -- -y
