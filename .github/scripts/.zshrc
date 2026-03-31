@@ -1,5 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
+zstyle ':omz:update' mode disabled
+
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 fpath+=${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-completions/src
