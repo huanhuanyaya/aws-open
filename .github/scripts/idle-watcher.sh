@@ -13,11 +13,11 @@ IDLE_TIME=0
 
 echo "Starting idle watcher with timeout: ${TIMEOUT}s (Process tree method)"
 
+# Get the PID of tailscaled
+TS_PID=$(pgrep -x tailscaled | head -n 1)
+
 while true; do
     SESSION_ACTIVE=0
-
-    # Get the PID of tailscaled
-    TS_PID=$(pgrep -x tailscaled | head -n 1)
 
     if [ -n "$TS_PID" ]; then
         # Check for child processes (SSH sessions, SFTP, port forwarding, etc.)
