@@ -12,6 +12,14 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-"$
 tar -C /usr/local --strip-components=1 -xzf nvim-linux-"$ARCH".tar.gz
 rm nvim-linux-"$ARCH".tar.gz
 
+# Install latest lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*')
+LAZYGIT_ARCH=$(uname -m | sed -e 's/aarch64/arm64/')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_${LAZYGIT_ARCH}.tar.gz"
+tar xf lazygit.tar.gz lazygit
+rm lazygit.tar.gz
+install lazygit -D -t /usr/local/bin/
+
 # Install tools
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 curl -LsSf https://astral.sh/uv/install.sh | sh
