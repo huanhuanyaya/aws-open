@@ -58,6 +58,7 @@ jobs:
           tags: tag:not,tag:ci
           args: --advertise-exit-node --ssh
           hostname: aws
+          ping: jp-01,tx
 
       - name: Free Disk Space (Ubuntu)
         if: ${{ inputs.free-space }}
