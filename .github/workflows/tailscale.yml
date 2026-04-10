@@ -79,3 +79,4 @@ jobs:
       - name: Keep Runner Alive
         run: |
           tail -f /dev/null || :
+          uptime

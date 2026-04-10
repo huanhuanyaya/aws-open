@@ -49,6 +49,7 @@ chmod go-w /usr/share/zsh/vendor-completions 2>/dev/null || true
 # Setup Interceptors
 cat > /usr/local/bin/action-shutdown << 'EOF'
 #!/bin/bash
+uptime
 pgrep -x tail | xargs -r kill
 EOF
 
