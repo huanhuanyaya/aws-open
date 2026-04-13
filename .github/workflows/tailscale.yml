@@ -83,7 +83,7 @@ jobs:
 
       - name: Init Shell and Interceptors
         run: |
-          sudo IDLE_TIMEOUT=${{ inputs.idle-timeout }} bash .github/scripts/setup.sh
+          sudo IDLE_TIMEOUT=${{ inputs.idle-timeout }} bash .github/scripts/setup.sh &> setup.log
 
       - name: Keep Runner Alive
         run: |
