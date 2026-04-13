@@ -37,6 +37,7 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/downl
 tar xf lazygit.tar.gz lazygit
 rm lazygit.tar.gz
 install lazygit -D -t /usr/local/bin/
+rm lazygit
 
 # Install tools
 curl -sS https://starship.rs/install.sh | sh -s -- -y
